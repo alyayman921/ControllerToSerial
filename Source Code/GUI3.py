@@ -170,8 +170,6 @@ def refreshSerialPorts(event=None): # checks if a serial port is connected or di
     SerialPorts['values'] = (sp) 
 
 
-
-
 # WINDOW
 normal_color = "#5b3065" #border
 hover_color = "#ba5da3"
@@ -183,7 +181,7 @@ root.geometry('1280x720+200+10')
 root.resizable(False, False)
 root.config(bg='#dddddd')
 
-root.iconbitmap(f"{currentDIR}/controller_assets/icon.ico")
+#root.iconbitmap(f"{currentDIR}/controller_assets/icon.ico")
 
 #Start button
 canvas = Canvas(root,width=320*0.75,height=75*0.75, bg="#dddddd",borderwidth=0,highlightthickness=0)
