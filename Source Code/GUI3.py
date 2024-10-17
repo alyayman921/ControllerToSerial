@@ -9,12 +9,14 @@ from PIL import Image, ImageTk
 from serial_communicator import Serial_Communications
 from serial_sniffer import serial_ports
 from controller_func import Controller
+from render import Render
 
 sp=serial_ports()
 print(sp)
 running=False
 expanded=False
 currentDIR=os.getcwd()
+render_obj = Render(0, 0, 0)
 
 def start_clicked():
     global running,c,Serial
@@ -25,7 +27,8 @@ def start_clicked():
         running=False
         Serial.close()
 
-    elif SerialPorts.get()!="":
+    #elif SerialPorts.get()!="":
+    else :
         running = True
         print('yare yare')
         canvas.itemconfig(toggle_text,text='Stop')
@@ -164,13 +167,29 @@ def Send_text(event=None): # Send to Serial Port from user input
     global b,Serial
     Serial.send(serial_sender.get()) #
     serial_sender.delete(0, tk.END)
+
 def refreshSerialPorts(event=None): # checks if a serial port is connected or disconnected while running
     global sp
     sp=serial_ports()
     SerialPorts['values'] = (sp) 
 
+def update_model(render_obj,x,y,z): ## Use this to update in real time 
+    render_obj.update_rotation(x,y,z)
+    
+def drone_orientation():
+    while True: #Dummy Values
+        inputs=Controller().controller()
+        alpha=(float(inputs[9])+1)*100
+        beta=(float(inputs[11])+1)*100
+        gamma=0
+        update_model(render_obj,alpha, beta, gamma)
 
-# WINDOW
+def rotate_object():
+    t=threading.Thread(target=drone_orientation)
+    t.start()
+
+
+# GUI WINDOW
 normal_color = "#5b3065" #border
 hover_color = "#ba5da3"
 press_color = "#fffaaa"
@@ -219,7 +238,7 @@ SerialPorts.pack(pady=15,padx=20,side=("right"))
 SerialPorts.current() 
 
 #Title
-Label1=tk.Label(root,text='SSTL Rover Project',font="play 18 bold",fg="#001122", bg="#dddddd",highlightthickness=0)
+Label1=tk.Label(root,text='SSTL Drone Project',font="play 18 bold",fg="#001122", bg="#dddddd",highlightthickness=0)
 Label1.pack()
 Label1.place(x=40,y=40)
 
@@ -252,6 +271,26 @@ serial_sender=tk.Entry(root,width=1280)
 serial_sender.pack(side='bottom')
 serial_sender.bind('<Return>',Send_text)
 
+
+# 3D viewer
+expanded_3D=False
+viewer_button = Canvas(root,width=320*0.75,height=75*0.75, bg="#dddddd",borderwidth=0,highlightthickness=0) #button
+Start = viewer_button.create_polygon(
+p1,p2,p3,p4,p5,p6,p7,
+outline=normal_color, width=2,
+fill=fill_color
+)
+viewer_button.create_text((160*0.75,40*0.75), text="3D View", font="Play 12 bold",fill="white")
+viewer_button.place(x=530,y=620)
+viewer_button.bind("<Enter>", lambda event: change_color(viewer_button,hover_color))
+viewer_button.bind("<Leave>", lambda event: change_color(viewer_button,normal_color))
+viewer_button.bind("<Button-1>", lambda event: change_color(viewer_button,press_color))
+if not (expanded_3D):
+    viewer_button.bind("<ButtonRelease-1>", lambda event: rotate_object())
+    expanded_3D=True
+else:
+    Render.quit_render()
+    expanded_3D=False
 
 #Controller Overlay
 

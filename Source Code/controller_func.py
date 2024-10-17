@@ -7,7 +7,7 @@ class Controller:
         pygame.init()
         pygame.joystick.init()
         self.joystick_count = pygame.joystick.get_count()
-        print(f"Connected controllers: {self.joystick_count}")
+        #print(f"Connected controllers: {self.joystick_count}")
 
     def controller(self):
         global b
@@ -23,6 +23,7 @@ class Controller:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
+
             if self.joystick_count > 0:
                 joystick = pygame.joystick.Joystick(0)
                 axis_count = joystick.get_numaxes()
@@ -44,9 +45,9 @@ class Controller:
             return b
             #pygame.time.wait(60)
 
-
 if __name__ == '__main__':
     controller_instance = Controller()
     while True:
         current_input = controller_instance.controller()
+        print(current_input)
         # Perform further processing with current_input as needed
