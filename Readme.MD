@@ -8,7 +8,7 @@
 RC Remotes are Expensive As F$%& and they're kind of prohibited to buy in here, so I had to make do.
 
 This Code can send and receive from Serial port, a serial monitor is available with the ability to send in the small text box at the bottom, make sure to not miss it.
-![[ss.png]]
+![C2S](https://ibb.co/GQs7r6yR)
 ## License
  You can use this code for free, Distribution is prohibited.
 ## TODO List
@@ -23,7 +23,7 @@ This Code can send and receive from Serial port, a serial monitor is available w
 
 ## Windows
 
-[Download a prebuilt version][https://github.com/alyayman921/ControllerToSerial/releases/download/V1.0/C2S-prebuilt.zip]
+[Download a prebuilt Version](https://github.com/alyayman921/ControllerToSerial/releases/download/V1.0/C2S-prebuilt.zip)
 
 ---
 
