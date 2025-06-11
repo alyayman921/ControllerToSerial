@@ -8,38 +8,22 @@
 RC Remotes are Expensive As F$%& and they're kind of prohibited to buy in here, so I had to make do.
 
 This Code can send and receive from Serial port, a serial monitor is available with the ability to send in the small text box at the bottom, make sure to not miss it.
-
-```md
-![UI](ss.png)
-```
- 
-
----
-
+![[ss.png]]
+## License
+ You can use this code for free, Distribution is prohibited.
 ## TODO List
 
-- [ ] dynamic window size  ==important== 
-- [ ] Finish 3D view model, add a quadcopter/airplane model and receive euler angles from serial to display attitude ==important==
-- [ ] make the installer copy what's within dist to the build location ==important==
-- [ ] Fix transparency issues (tkinter) ==meh==
-
-
-
-
-
----
-
-## License
- You can use this code for free, Distribution is ==prohibited==.
-
-
+- [ ] dynamic window size - important
+- [ ] Finish 3D view model, add a quadcopter/airplane model and receive euler angles from serial to display attitude - important
+- [ ] make the installer copy what's within dist to the build location - important
+- [ ] Fix transparency issues (tkinter) - meh
  ***
 
 # Installation
 
 ## Windows
 
-[Download a prebuilt version]
+[Download a prebuilt version][https://github.com/alyayman921/ControllerToSerial/releases/download/V1.0/C2S-prebuilt.zip]
 
 ---
 
@@ -53,9 +37,8 @@ python C2S.py
 You can also build it on your own by using build.bat, then copy /dist content to the original folder and you should be good to go 
 ## Linux
 
-C2S works on Linux too, but You already know what to do most likely 
+C2S works on Linux too, You already know what to do most likely.
 
-%% finish later %%
 
 
  

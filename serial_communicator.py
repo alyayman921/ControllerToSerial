@@ -4,9 +4,9 @@ from time import sleep
 class Serial_Communications:
 
     def __init__(self,COM,BAUD):
-        self.COM=COM
-        self.BAUD=BAUD
-        self.serial=serial.Serial(COM,BAUD,timeout=0.01)
+        self.COM=COM ## Com port in This Serial Object Instance which you call is the 1st argument which is COM
+        self.BAUD=BAUD ## Baud Rate in This Serial Object Instance which you call is the 2st argument which is BAUD
+        self.serial=serial.Serial(COM,BAUD,timeout=0.01) # Initialize This Serial Instance with inputs
         sleep(0.3)
 
     def send(self,data):
