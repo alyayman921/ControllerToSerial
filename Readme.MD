@@ -8,7 +8,7 @@
 RC Remotes are Expensive As F$%& and they're kind of prohibited to buy in here, so I had to make do.
 
 This Code can send and receive from Serial port, a serial monitor is available with the ability to send in the small text box at the bottom, make sure to not miss it.
-![C2S](https://ibb.co/GQs7r6yR)
+![C2S](<a href="https://ibb.co/GQs7r6yR"><img src="https://i.ibb.co/GQs7r6yR/ss.png" alt="ss" border="0"></a>)
 ## License
  You can use this code for free, Distribution is prohibited.
 ## TODO List
